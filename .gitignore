@@ -1,0 +1,66 @@
+# Build artifacts
+build/
+engine/build/
+frontend/build/
+*.o
+*.so
+*.dylib
+*.a
+*.dll
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+frontend/web/
+frontend/linux/
+frontend/macos/
+frontend/windows/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Exports
+exports/
+*.csv
+*.db
+
+# Logs
+*.log
+logs/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Testing
+test-results/
+*.test
+*.out
+

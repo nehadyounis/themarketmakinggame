@@ -1,0 +1,33 @@
+# Engine Builder - Multi-stage build for C++ engine
+FROM ubuntu:22.04 AS builder
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    python3 \
+    python3-dev \
+    python3-pip \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pybind11
+RUN pip3 install pybind11
+
+WORKDIR /build
+
+# Copy engine source
+COPY engine/ /build/engine/
+
+# Build engine
+WORKDIR /build/engine
+RUN mkdir -p build && cd build && \
+    cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON_BINDINGS=ON -DBUILD_TESTS=ON .. && \
+    make -j$(nproc) && \
+    ctest --output-on-failure
+
+# Export artifacts
+FROM scratch AS export
+COPY --from=builder /build/engine/build/libmmg_engine.* /
+COPY --from=builder /build/engine/build/mmg_engine*.so /
+

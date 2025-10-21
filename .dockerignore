@@ -1,0 +1,54 @@
+# Ignore unnecessary files for Docker builds
+
+# Build artifacts
+build/
+engine/build/
+frontend/build/
+*.o
+*.so
+*.dylib
+*.a
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Docs
+*.md
+docs/
+
+# Tests
+engine/tests/
+gateway/tests/
+frontend/test/
+
+# Exports
+exports/
+
+# Misc
+.DS_Store
+*.log
+
